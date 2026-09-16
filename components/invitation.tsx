@@ -27,7 +27,7 @@ export function EnvelopeAnimation({ done }: { done: () => void }) {
       setTimeout(() => setPhase('opening'), 2000),
       setTimeout(() => setPhase('message'), 5600),
       setTimeout(() => setPhase('leaving'), 7600),
-      setTimeout(done, 20600),
+      setTimeout(done, 10600),
     ];
     return () => timers.forEach(clearTimeout);
   }, [done]);
