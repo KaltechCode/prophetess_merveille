@@ -1,0 +1,25 @@
+[Unit]
+Description=Prophetess Merveille invitation
+After=network.target
+
+[Service]
+Type=simple
+User=merveille
+Group=merveille
+WorkingDirectory=/srv/merveille/current
+Environment=NODE_ENV=production
+Environment=HOSTNAME=127.0.0.1
+Environment=PORT=3000
+EnvironmentFile=/etc/merveille.env
+ExecStart=/usr/bin/node /srv/merveille/current/server.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/merveille/current/.next/cache
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
